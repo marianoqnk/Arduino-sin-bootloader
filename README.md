@@ -26,7 +26,10 @@ framework = arduino
 ```
 Cambiamos Board por ATmega328P de esta forma selecciona el minicore.  
 La configración de board con [Minicore](https://github.com/MCUdude/MiniCore?tab=readme-ov-file), carga un nucleo llamado minicore que tiene algunas caracteristicas distintas:
-- Utiliza el bootloader [Urboot](https://github.com/stefanrueger/urboot/)  Que tiene detección automática de bootloader.
+- Utiliza el bootloader [Urboot](https://github.com/stefanrueger/urboot/)  Que tiene detección automática de bootloader. Este bootloader ocupa: 
+256 bytes albeit normally without EEPROM read/write support  
+384 bytes with EEPROM read/write support  
+512 bytes with dual-boot, EEPROM read/write support and Chip Erase capability  
 - Soporta Serial.printf("Milliseconds since start: %ld\n", millis()); aunque no imprime float, se puede seleccionar en el compilador o utilizar la funcion dtostr(): Supuestamente haciendo esto funciona build_flags = -D PIO_FRAMEWORK_ARDUINO_NANOLIB_FLOAT_PRINTF
 
 
